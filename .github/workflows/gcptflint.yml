@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@master
       - name: Say something
         run: |
-          docker run -v ${PWD}:/data image: eu.gcr.io/ingka-ice-unittest-dev/gcptflint:v0.1.0_gcp
+          docker --version
   # my_job:
   #   needs: my_build
   #   container:
