@@ -1,0 +1,20 @@
+name: gcptflint test
+on: [push]
+
+env:
+  message: "conversation"
+jobs:
+  gcptflint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking out our code
+        uses: actions/checkout@master
+      - name: Say something
+        run: |
+          docker run -v ${PWD}:/data image: eu.gcr.io/ingka-ice-unittest-dev/gcptflint:v0.1.0_gcp
+  # my_job:
+  #   needs: my_build
+  #   container:
+  #     image: eu.gcr.io/ingka-ice-unittest-dev/gcptflint:v0.1.0_gcp
+  #     volumes:
+  #       - my_docker_volume:/volume_mount
