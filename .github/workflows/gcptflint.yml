@@ -9,12 +9,15 @@ jobs:
     steps:
       - name: Checking out our code
         uses: actions/checkout@master
+      - name: login to artifact
+        run: |
+          docker login artifactory.build.ingka.ikea.com:443 -u DPS-CCOE --password-stdin < ${TOKEN}
       - name: Pull gcptflint docker image
         run: |
-          docker pull eu.gcr.io/ingka-ice-unittest-dev/gcptflint:v0.1.0_gcp
+          docker pull artifactory.build.ingka.ikea.com:443/ingka-docker-shared-local/gcptflint:v0.1.0_gcp
       - name: Run gcptflint
         run: |
-          docker run -v ${PWD}:/data eu.gcr.io/ingka-ice-unittest-dev/gcptflint:v0.1.0_gcp
+          docker run -v ${PWD}:/data artifactory.build.ingka.ikea.com:443/ingka-docker-shared-local/gcptflint:v0.1.0_gcp
   # my_job:
   #   needs: my_build
   #   container:
