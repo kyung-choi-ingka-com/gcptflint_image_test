@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@master
       - name: login to artifact
         run: |
-          docker login artifactory.build.ingka.ikea.com:443 -u DPS-CCOE --password-stdin < ${TOKEN}
+          docker login artifactory.build.ingka.ikea.com:443 -u DPS-CCOE --password ${TOKEN}
       - name: Pull gcptflint docker image
         run: |
           docker pull artifactory.build.ingka.ikea.com:443/ingka-docker-shared-local/gcptflint:v0.1.0_gcp
