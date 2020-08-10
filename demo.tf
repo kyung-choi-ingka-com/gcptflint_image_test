@@ -7,7 +7,7 @@ resource "google_compute_instance" "default" {
 
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian"
+      image = "debian-cloud/debian-9"
     }
   }
 
@@ -56,7 +56,7 @@ resource "google_compute_instance" "apps" {
 
   boot_disk {
     initialize_params {
-      image = "ubuntu-os-cloud/ubuntu-1804"
+      image = "ubuntu-os-cloud/ubuntu-1804-lts"
     }
   }
 
