@@ -20,9 +20,3 @@ jobs:
       - name: Run gcptflint
         run: |
           docker run -v ${PWD}:/data artifactory.build.ingka.ikea.com:443/ingka-docker-shared-local/gcptflint:v0.1.0_gcp
-  # my_job:
-  #   needs: my_build
-  #   container:
-  #     image: eu.gcr.io/ingka-ice-unittest-dev/gcptflint:v0.1.0_gcp
-  #     volumes:
-  #       - my_docker_volume:/volume_mount
