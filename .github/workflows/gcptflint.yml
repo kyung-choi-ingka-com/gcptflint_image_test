@@ -16,7 +16,7 @@ jobs:
           SECRET: ${{ secrets.TOKEN }}
       - name: Pull gcptflint docker image
         run: |
-          docker pull artifactory.build.ingka.ikea.com:443/ingka-docker-release-local/gcptflint:v0.1.0_gcp
+          docker pull artifactory.build.ingka.ikea.com/ccoe-docker-release-local/gcptflint:v0.1.0_gcp
       - name: Run gcptflint
         run: |
-          docker run -v ${PWD}:/data artifactory.build.ingka.ikea.com:443/ingka-docker-release-local/gcptflint:v0.1.0_gcp
+          docker run -v ${PWD}:/data artifactory.build.ingka.ikea.com/ccoe-docker-release-local/gcptflint:v0.1.0_gcp
