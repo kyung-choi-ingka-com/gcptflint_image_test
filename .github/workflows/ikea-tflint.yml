@@ -1,7 +1,7 @@
 name: ikea-flint test
 on: [push]
 jobs:
-  gcptflint:
+  ikea-tflint-run-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checking out our code
