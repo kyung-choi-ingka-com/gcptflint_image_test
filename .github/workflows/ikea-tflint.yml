@@ -11,9 +11,15 @@ jobs:
           docker login artifactory.build.ingka.ikea.com -u DPS-CCOE --password "$SECRET"
         env:
           SECRET: ${{ secrets.TOKEN }}
+      
       - name: Pull ikea-tflint docker image
         run: |
           docker pull artifactory.build.ingka.ikea.com/ccoe-docker-release-local/ikea-tflint:v1.0.2
+      
+      - name: Run ikea-tflint -v
+        run: |
+          docker run -v ${PWD}:/data artifactory.build.ingka.ikea.com/ccoe-docker-release-local/ikea-tflint:v1.0.2 -v
+          
       - name: Run ikea-tflint
         run: |
           docker run -v ${PWD}:/data artifactory.build.ingka.ikea.com/ccoe-docker-release-local/ikea-tflint:v1.0.2
