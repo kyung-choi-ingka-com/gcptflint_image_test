@@ -1,8 +1,5 @@
-name: gcptflint test
+name: ikea-flint test
 on: [push]
-
-env:
-  message: "conversation"
 jobs:
   gcptflint:
     runs-on: ubuntu-latest
@@ -14,9 +11,9 @@ jobs:
           docker login artifactory.build.ingka.ikea.com -u DPS-CCOE --password "$SECRET"
         env:
           SECRET: ${{ secrets.TOKEN }}
-      - name: Pull gcptflint docker image
+      - name: Pull ikea-tflint docker image
         run: |
           docker pull artifactory.build.ingka.ikea.com/ccoe-docker-release-local/ikea-tflint:v1.0.2
-      - name: Run gcptflint
+      - name: Run ikea-tflint
         run: |
           docker run -v ${PWD}:/data artifactory.build.ingka.ikea.com/ccoe-docker-release-local/ikea-tflint:v1.0.2
